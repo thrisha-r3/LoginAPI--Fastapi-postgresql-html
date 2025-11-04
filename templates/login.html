@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form action="/login_user" method="post" onsubmit="return validateLogin()">
+      <input type="text" name="username" id="login_username" placeholder="Username" required>
+      <input type="password" name="password" id="login_password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don’t have an account? <a href="/register">Register here</a></p>
+  </div>
+
+  <script>
+    function validateLogin() {
+      const username = document.getElementById("login_username").value.trim();
+      const password = document.getElementById("login_password").value.trim();
+
+      if (username === "" || password === "") {
+        alert("Please fill all fields!");
+        return false;
+      }
+      return true;
+    }
+  </script>
+</body>
+</html>
